@@ -2,7 +2,7 @@
 The Api is used to search  assist you in remembering what to pack using Mock Json-server Api.
 
 ## URLs
-- Project lives at: **[ghum-gham.samresh.com.np](https://ghum-gham.samresh.com.np/)** - production (main branch)
+- Project lives at: **[ghum-gham.samresh.com.np](https://ghum-gham.samresh.com.np/)** 
 - JSON Server API at:  **[JSON_SEVER_API](https://ghumgham-api.onrender.com/items)** 
 
 ## Getting Started
