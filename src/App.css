@@ -33,6 +33,10 @@ body {
   display: grid;
   grid-template-rows: auto  1fr auto;
 }
+.load{
+  text-align: center;
+  color: red;
+}
 
 h1 {
   text-align: center;
@@ -174,7 +178,8 @@ input[type="checkbox"] {
   margin-right: 20px;
 }
 
-  .stats {
+ 
+.stats {
     font-weight: 300;
     padding: 20px;
   }

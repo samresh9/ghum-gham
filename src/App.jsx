@@ -80,14 +80,15 @@ function App() {
       <div className="app">
         <Form onAddItems={handleAddItems} />
         <main>
-          {isLoading && <p>Loading Items ...</p>}
-          {errors && <p style={{ color: "red" }}>{`Error: ${errors}`}</p>}
+          {isLoading && <p style={{ color: "red", textAlign:"center" }}>Loading Items ...</p>}
+          {errors && <p style={{ color: "red" , textAlign: "center" }}>{`Error: ${errors}`}</p>}
           {!errors && !isLoading && (
             <PackagingList
               items={items}
               onDeleteItems={handleDeleteItems}
               onUpdateItems={handleToggeleItems}
               onDeleteAllItems={handleDeleteAllItems}
+              isLoading={isLoading}
             />
           )}
         </main>
