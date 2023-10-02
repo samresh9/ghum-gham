@@ -1,7 +1,7 @@
 .container{
     display: flex;
     justify-content: center;
-    padding: 30px;
+    padding: 40px;
 }
 .formContainer {
     display: flex;    

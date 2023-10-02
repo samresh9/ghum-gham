@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 export function Items({ item, onDeleteItems, onUpdateItems }) {
   return (
+    <div className="flex-list">
     <li>
       <input
         checked={item.packed}
@@ -14,6 +15,7 @@ export function Items({ item, onDeleteItems, onUpdateItems }) {
       </span>
       <button onClick={() => onDeleteItems(item.id)}>❌</button>
     </li>
+    </div>
   );
 }
 

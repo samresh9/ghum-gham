@@ -15,11 +15,9 @@ function App() {
         const response = await fetch(API_URI);
         if (!response.ok) throw Error("Something Went wrong try again");
         const listItems = await response.json();
-        console.log(listItems);
         setItems(listItems);
         setErrors("");
       } catch (err) {
-        console.log(err);
         setErrors(err.message);
       } finally {
         setIsLoading(false);
@@ -37,7 +35,6 @@ function App() {
         body: JSON.stringify(newItem),
       };
       const result = await fetch(API_URI, postOptions);
-      console.log(result);
       if (!result) throw Error("Something went wrong");
       setItems((items) => [...items, newItem]);
     } catch (err) {
@@ -45,38 +42,38 @@ function App() {
     }
   }
   async function handleDeleteItems(id) {
-    try{
-    const deleteOptions = { method: "DELETE" };
-    const result = await fetch(`${API_URI}${id}`, deleteOptions);
-     if (!result) throw Error("Something went wrong");
-    setItems((items) => items.filter((item) => item.id !== id));
-    }catch(err){
-      setErrors(err)
+    try {
+      const deleteOptions = { method: "DELETE" };
+      const result = await fetch(`${API_URI}${id}`, deleteOptions);
+      if (!result) throw Error("Something went wrong");
+      setItems((items) => items.filter((item) => item.id !== id));
+    } catch (err) {
+      setErrors(err);
     }
   }
   async function handleToggeleItems(id) {
-    try{
-    const listItems = items.map((item) =>
-      item.id === id ? { ...item, packed: !item.packed } : item
-    );
-    const myItem = listItems.filter((item) => item.id === id);
-    const updateOptions = {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ packed: myItem[0].packed }),
-    };
-    const result = await fetch(`${API_URI}${id}`, updateOptions);
-    if (!result) throw Error("Something went wrong");
-    setItems(listItems);
-  }catch(err){
-    setErrors(err);
-  }
+    try {
+      const listItems = items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      );
+      const myItem = listItems.filter((item) => item.id === id);
+      const updateOptions = {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ packed: myItem[0].packed }),
+      };
+      const result = await fetch(`${API_URI}${id}`, updateOptions);
+      if (!result) throw Error("Something went wrong");
+      setItems(listItems);
+    } catch (err) {
+      setErrors(err);
+    }
   }
   function handleDeleteAllItems() {
     setItems((items) => items.slice(items.length));
-  items.map(item=>handleDeleteItems(item.id))
+    items.map((item) => handleDeleteItems(item.id));
   }
   return (
     <>

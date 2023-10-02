@@ -8,13 +8,15 @@ function Contact() {
   function handleChange(e) {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    console.log(formValues);
   }
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
-    console.log(fromErrors);
-    setIsSubmit(true)
+   if(Object.keys(fromErrors).length === 0){
+   setIsSubmit(true);
+   setFormValues(initialValues);
+   }
+    
   };
   const validate = (values) => {
     let errors = {};

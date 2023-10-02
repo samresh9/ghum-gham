@@ -157,15 +157,23 @@ input[type="checkbox"] {
   h3 {
     text-align: center;
   }
-  .list {
-    justify-content: center;
+
+
+  /* .list ul {
+    display:grid;
+    grid-template-rows: auto auto auto;
+    margin-left: 50px;
+    justify-items: space-evenly;
+  } */
+  
+  .flex-list{
+    display: flex;
+  margin-left: 50px;
   }
-  .list ul {
-    display: grid;
-  }
-  .list li {
-    justify-content: center;
-  }
+  input[type="checkbox"] {
+  margin-right: 20px;
+}
+
   .stats {
     font-weight: 300;
     padding: 20px;
